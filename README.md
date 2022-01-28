@@ -11,9 +11,7 @@
 | first_name         | string  | null: false               |
 | last_name_kana     | string  | null: false               |
 | first_name_kana    | string  | null: false               |
-| birth_year         | integer | null: false               |
-| birth_month        | integer | null: false               |
-| birth_day          | integer | null: false               |
+| birth_day          | date    | null: false               |
 
 ### Association
 
@@ -26,13 +24,14 @@
 |---------------|------------|--------------------------------|
 | name          | string     | null: false                    |
 | description   | text       | null: false                    |
-| category      | string     | null: false                    |
-| condition     | string     | null: false                    |
+| image         | string     | null: false                    |
+| category      | integer    | null: false                    |
+| condition     | integer    | null: false                    |
 | shipping_fee  | integer    | null: false                    |
 | shipping_area | integer    | null: false                    |
 | shipping_time | integer    | null: false                    |
 | price         | integer    | null: false                    |
-| user_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to: user
@@ -42,8 +41,8 @@
 
 | Column        | Type       | Options                        |
 |---------------|------------|--------------------------------|
-| user_id       | references | null: false, foreign_key: true |
-| item_id       | references | null: false, foreign_key: true |
+| user          | references | null: false, foreign_key: true |
+| item          | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to: user
@@ -54,13 +53,13 @@
 
 | Column           | Type       | Options                        |
 |------------------|------------|--------------------------------|
-| post_code        | integer    | null: false                    |
+| post_code        | string     | null: false                    |
 | prefectures      | integer    | null: false                    |
 | municipalities   | string     | null: false                    |
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
-| telephone_number | integer    | null: false                    |
-| order_id         | references | null: false, foreign_key: true |
+| telephone_number | string     | null: false                    |
+| order            | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to: order
