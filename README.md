@@ -15,8 +15,8 @@
 
 ### Association
 
-- has_many: items, dependent: :destroy
-- has_many: orders, dependent: :destroy
+- has_many: items
+- has_many: orders
 
 ## itemsテーブル
 
@@ -24,18 +24,17 @@
 |------------------|------------|--------------------------------|
 | name             | string     | null: false                    |
 | description      | text       | null: false                    |
-| image            |            | null: false                    |
 | category_id      | integer    | null: false                    |
 | condition_id     | integer    | null: false                    |
 | shipping_fee_id  | integer    | null: false                    |
-| shipping_area_id | integer    | null: false                    |
+| prefectures_id   | integer    | null: false                    |
 | shipping_time_id | integer    | null: false                    |
 | price            | integer    | null: false                    |
 | user             | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to: user
-- has_one: order, dependent: :destroy
+- has_one: order
 
 ## ordersテーブル
 
@@ -47,7 +46,7 @@
 ### Association
 - belongs_to: user
 - belongs_to: item
-- has_one: shipping_information, dependent: :destroy
+- has_one: shipping_information
 
 ## shipping_informationsテーブル
 
