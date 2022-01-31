@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :nickname, presence: true
-  validates :encrypted_password,:password,:password_confirmation,format:{with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i }
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i
+  validates :password,format:{with: VALID_PASSWORD_REGEX }
   validates :last_name, presence: true
   validates :first_name, presence: true
   validates :last_name_kana, presence: true
