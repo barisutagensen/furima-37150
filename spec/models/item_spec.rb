@@ -4,8 +4,8 @@ RSpec.describe Item, type: :model do
   before do
     @item = FactoryBot.build(:item)
   end
-  describe '商品出品登録' do
-    context '商品出品登録できる場合'
+  describe '商品出品登録機能' do
+    context '商品出品できる場合'
     it 'すべての項目の入力が存在すれば出品できる' do
       expect(@item).to be_valid
     end
