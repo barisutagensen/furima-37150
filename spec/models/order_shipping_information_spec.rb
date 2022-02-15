@@ -5,7 +5,7 @@ RSpec.describe OrderShippingInformation, type: :model do
     before do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.create(:item)
-      @order_shipping_information = FactoryBot.build(:order_shipping_information, user_id: @user.id, item_id: @item.id)
+      @order_shipping_information = FactoryBot.build(:order_shipping_information, user_id: @user.id, item_id: @item.id, price: @item.price)
       sleep 0.1
     end
 
@@ -79,6 +79,18 @@ RSpec.describe OrderShippingInformation, type: :model do
         @order_shipping_information.telephone_number = '090123456789'
         @order_shipping_information.valid?
         expect(@order_shipping_information.errors.full_messages).to include("Telephone number is invalid")
+      end
+
+      it 'tokenが空だと購入できない' do
+        @order_shipping_information.token = ''
+        @order_shipping_information.valid?
+        expect(@order_shipping_information.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'priceが空だと購入できない' do
+        @order_shipping_information.price = ''
+        @order_shipping_information.valid?
+        expect(@order_shipping_information.errors.full_messages).to include("Price can't be blank")
       end
     end
   end

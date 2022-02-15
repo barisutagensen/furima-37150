@@ -1,7 +1,7 @@
 class OrderShippingInformation
 
   include ActiveModel::Model
-  attr_accessor :post_code, :prefectures_id, :municipalities, :address, :building_name, :telephone_number, :item_id, :user_id
+  attr_accessor :post_code, :prefectures_id, :municipalities, :address, :building_name, :telephone_number, :item_id, :user_id, :token, :price
 
   with_options presence: true do
     validates :post_code, format: { with: /\A\d{3}[-]\d{4}\z/ }
@@ -11,6 +11,8 @@ class OrderShippingInformation
     validates :telephone_number, format: { with: /\A\d{10,11}\z/ }
     validates :user_id
     validates :item_id
+    validates :token
+    validates :price
   end
 
   def save
