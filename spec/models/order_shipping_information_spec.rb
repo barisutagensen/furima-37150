@@ -1,11 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe OrderShippingInformation, type: :model do
-  describe '購入機能'do
+  describe '購入機能' do
     before do
       @user = FactoryBot.create(:user)
       @item = FactoryBot.create(:item)
-      @order_shipping_information = FactoryBot.build(:order_shipping_information, user_id: @user.id, item_id: @item.id, price: @item.price)
+      @order_shipping_information = FactoryBot.build(:order_shipping_information, user_id: @user.id, item_id: @item.id,
+                                                                                  price: @item.price)
       sleep 0.1
     end
 
@@ -30,19 +31,19 @@ RSpec.describe OrderShippingInformation, type: :model do
       it 'post_codeにハイフンがないと購入できない' do
         @order_shipping_information.post_code = '1234567'
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Post code is invalid")
+        expect(@order_shipping_information.errors.full_messages).to include('Post code is invalid')
       end
 
       it 'post_codeが全角だと購入できない' do
         @order_shipping_information.post_code = '１２３−４５６７'
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Post code is invalid")
+        expect(@order_shipping_information.errors.full_messages).to include('Post code is invalid')
       end
 
       it 'prefectures_idが---だと購入できない' do
         @order_shipping_information.prefectures_id = 1
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Prefectures を選択してください")
+        expect(@order_shipping_information.errors.full_messages).to include('Prefectures を選択してください')
       end
 
       it 'municipalitiesが空だと購入できない' do
@@ -66,19 +67,19 @@ RSpec.describe OrderShippingInformation, type: :model do
       it 'telephone_numberが全角だと購入できない' do
         @order_shipping_information.telephone_number = '０９０１２３４５６７８'
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order_shipping_information.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'telephone_numberが9桁以内だと購入できない' do
         @order_shipping_information.telephone_number = '090123456'
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order_shipping_information.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'telephone_numberが12桁以上だと購入できない' do
         @order_shipping_information.telephone_number = '090123456789'
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Telephone number is invalid")
+        expect(@order_shipping_information.errors.full_messages).to include('Telephone number is invalid')
       end
 
       it 'tokenが空だと購入できない' do
