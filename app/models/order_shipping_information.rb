@@ -12,7 +12,6 @@ class OrderShippingInformation
     validates :user_id
     validates :item_id
     validates :token
-    validates :price
   end
 
   def save

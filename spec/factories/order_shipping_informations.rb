@@ -4,6 +4,7 @@ FactoryBot.define do
     prefectures_id   { 2 }
     municipalities   { '札幌市' }
     address          { '123' }
+    building_name    { 'hoge' }
     telephone_number { '09012345678' }
     token            { 'tok_abcdefghijk00000000000000000' }
   end

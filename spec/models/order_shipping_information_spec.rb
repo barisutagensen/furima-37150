@@ -88,10 +88,16 @@ RSpec.describe OrderShippingInformation, type: :model do
         expect(@order_shipping_information.errors.full_messages).to include("Token can't be blank")
       end
 
-      it 'priceが空だと購入できない' do
-        @order_shipping_information.price = ''
+      it 'user_idが紐付いていないと購入できない' do
+        @order_shipping_information.user_id = nil
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Price can't be blank")
+        expect(@order_shipping_information.errors.full_messages).to include("User can't be blank")
+      end
+
+      it 'item_idが紐付いていないと購入できない' do
+        @order_shipping_information.item_id = nil
+        @order_shipping_information.valid?
+        expect(@order_shipping_information.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
