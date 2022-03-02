@@ -24,7 +24,7 @@ RSpec.describe OrderShippingInformation, type: :model do
       it 'post_codeが空だと購入できない' do
         @order_shipping_information.post_code = ''
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('郵便番号を入力してください')
       end
 
       it 'post_codeにハイフンがないと購入できない' do
@@ -48,19 +48,19 @@ RSpec.describe OrderShippingInformation, type: :model do
       it 'municipalitiesが空だと購入できない' do
         @order_shipping_information.municipalities = ''
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('市区町村を入力してください')
       end
 
       it 'addressが空だと購入できない' do
         @order_shipping_information.address = ''
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("番地を入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('番地を入力してください')
       end
 
       it 'telephone_numberが空だと購入できない' do
         @order_shipping_information.telephone_number = ''
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('電話番号を入力してください')
       end
 
       it 'telephone_numberが全角だと購入できない' do
@@ -84,19 +84,19 @@ RSpec.describe OrderShippingInformation, type: :model do
       it 'tokenが空だと購入できない' do
         @order_shipping_information.token = ''
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("クレジットカードを入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('クレジットカードを入力してください')
       end
 
       it 'user_idが紐付いていないと購入できない' do
         @order_shipping_information.user_id = nil
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Userを入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('Userを入力してください')
       end
 
       it 'item_idが紐付いていないと購入できない' do
         @order_shipping_information.item_id = nil
         @order_shipping_information.valid?
-        expect(@order_shipping_information.errors.full_messages).to include("Itemを入力してください")
+        expect(@order_shipping_information.errors.full_messages).to include('Itemを入力してください')
       end
     end
   end

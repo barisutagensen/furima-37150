@@ -14,19 +14,19 @@ RSpec.describe Item, type: :model do
       it '商品名が空だと出品できない' do
         @item.name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
 
       it '商品画像が空だと出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("画像を入力してください")
+        expect(@item.errors.full_messages).to include('画像を入力してください')
       end
 
       it '商品の説明が空だと出品できない' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
 
       it '商品のカテゴリーがないと出品できない' do
@@ -92,37 +92,37 @@ RSpec.describe Item, type: :model do
       it '価格の情報がないと出品できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格を入力してください")
+        expect(@item.errors.full_messages).to include('販売価格を入力してください')
       end
 
       it '価格が¥300より少ない時は出品できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格は300以上の値にしてください")
+        expect(@item.errors.full_messages).to include('販売価格は300以上の値にしてください')
       end
 
       it '価格が¥9,999,999より高い時は出品できない' do
         @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格は9999999以下の値にしてください")
+        expect(@item.errors.full_messages).to include('販売価格は9999999以下の値にしてください')
       end
 
       it '価格が全角数値だと出品できない' do
         @item.price = '１０００'
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格は数値で入力してください")
+        expect(@item.errors.full_messages).to include('販売価格は数値で入力してください')
       end
 
       it '価格が半角英数字混合では出品できない' do
         @item.price = '10ab'
         @item.valid?
-        expect(@item.errors.full_messages).to include("販売価格は数値で入力してください")
+        expect(@item.errors.full_messages).to include('販売価格は数値で入力してください')
       end
 
       it 'user情報が空だと出品できない' do
         @item.user = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("Userを入力してください")
+        expect(@item.errors.full_messages).to include('Userを入力してください')
       end
     end
   end
