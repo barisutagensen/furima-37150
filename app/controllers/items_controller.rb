@@ -26,10 +26,16 @@ class ItemsController < ApplicationController
 
   def edit
     redirect_to root_path if @item.order.present?
+    item_attributes = @item.attributes
+    @item_form = ItemForm.new(item_attributes)
   end
 
   def update
-    if @item.update(item_params)
+    @item_form = ItemForm.new(item_form_params)
+
+    @item_form.image ||= @item.image.blob
+    if @item_form.valid?
+      @item_form.update(item_form_params, @item)
       redirect_to item_path(@item.id)
     else
       render :edit
