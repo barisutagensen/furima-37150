@@ -3,7 +3,8 @@ class ItemForm
 
   attr_accessor(
       :name, :image, :description, :category_id, :condition_id, :shipping_fee_id, :prefectures_id, :shipping_time_id, :price, :user_id,
-      :id, :created_at, :updated_at, :datetime
+      :id, :created_at, :updated_at, :datetime,
+      :tag_name
    )
 
   validates :image, presence: true
@@ -19,7 +20,10 @@ class ItemForm
   end
 
   def save
-    Item.create(name: name, description: description, category_id: category_id, condition_id: condition_id,shipping_fee_id: shipping_fee_id, prefectures_id: prefectures_id, shipping_time_id: shipping_time_id, price: price, user_id: user_id, image: image)
+    item = Item.create(name: name, description: description, category_id: category_id, condition_id: condition_id,shipping_fee_id: shipping_fee_id, prefectures_id: prefectures_id, shipping_time_id: shipping_time_id, price: price, user_id: user_id, image: image)
+    tag = Tag.where(tag_name: tag_name).first_or_initialize
+    tag.save
+    ItemTagRelation.create(item_id: item.id, tag_id: tag.id)
   end
 
   def update(params, item)
