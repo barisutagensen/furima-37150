@@ -15,8 +15,8 @@
 
 ### Association
 
-- has_many: items
-- has_many: orders
+- has_many :items
+- has_many :orders
 
 ## itemsテーブル
 
@@ -33,8 +33,10 @@
 | user             | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to: user
-- has_one: order
+- belongs_to :user
+- has_one :order
+- has_many :item_tag_relations
+- has_many :tags, through: :item_tag_relations
 
 ## ordersテーブル
 
@@ -44,9 +46,9 @@
 | item          | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to: user
-- belongs_to: item
-- has_one: shipping_information
+- belongs_to :user
+- belongs_to :item
+- has_one :shipping_information
 
 ## shipping_informationsテーブル
 
@@ -61,4 +63,25 @@
 | order               | references | null: false, foreign_key: true |
 
 ### Association
-- belongs_to: order
+- belongs_to :order
+
+## item_tag_relationsテーブル
+
+| Column | Type       | Options           |
+|--------|------------|-------------------|
+| item   | references | foreign_key: true |
+| tag    | references | foreign_key: true |
+
+### Association
+- belongs_to :item
+- belongs_to :tag
+
+## tagsテーブル
+
+| Column   | Type   | Options                       |
+|----------|--------|-------------------------------|
+| tag_name | string | null: false, uniqueness: true |
+
+### Association
+- has_many :item_tag_relations
+- has_many :items, through: :item_tag_relations
