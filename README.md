@@ -113,3 +113,9 @@
 ### Association
 - has_many :item_tag_relations
 - has_many :items, through: :item_tag_relations
+
+## 開発環境　バージョンなど
+* Ruby 2.6.5
+* Rails 6.0.0
+* MySQL 5.6.51
+* VScode
