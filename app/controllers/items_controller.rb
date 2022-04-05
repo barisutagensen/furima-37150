@@ -28,6 +28,7 @@ class ItemsController < ApplicationController
     redirect_to root_path if @item.order.present?
     item_attributes = @item.attributes
     @item_form = ItemForm.new(item_attributes)
+    @item_form.tag_name = @item.tags&.first&.tag_name
   end
 
   def update
