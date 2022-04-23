@@ -47,6 +47,12 @@ http://35.77.253.115/
 ![13e931950c5cb771f8bae1e8f699f2c2](https://user-images.githubusercontent.com/95076051/164469283-d3020b64-9896-4ac5-ac11-1756a7e413ba.gif)
 
 
+## 商品編集機能
+
+出品した商品の情報を編集することができます。
+
+![03001feee8a50c5069303d885637165b](https://user-images.githubusercontent.com/95076051/164911153-f8d16d76-d193-4cbb-8d7c-be4e899eacd9.gif)
+
 # テーブル設計
 
 ## usersテーブル
