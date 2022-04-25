@@ -53,6 +53,19 @@ http://35.77.253.115/
 
 ![03001feee8a50c5069303d885637165b](https://user-images.githubusercontent.com/95076051/164911153-f8d16d76-d193-4cbb-8d7c-be4e899eacd9.gif)
 
+## 商品削除機能
+
+出品した商品を削除することができます。
+
+![d3f235d3f13d6f52e72f707d258d8c53](https://user-images.githubusercontent.com/95076051/165074426-323280d6-7648-49ba-84ff-3846a4fe49a5.gif)
+
+## 商品購入機能
+
+出品者以外であれば商品を購入できます。
+
+![9319248446b3ad32205b2904e8ca049e](https://user-images.githubusercontent.com/95076051/165096390-ffee3ccd-e588-48d0-bc7c-4ad9c07f96cb.gif)
+
+
 # テーブル設計
 
 ## usersテーブル
