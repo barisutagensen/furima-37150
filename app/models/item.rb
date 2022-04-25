@@ -2,7 +2,7 @@ class Item < ApplicationRecord
   has_one_attached :image
   belongs_to       :user
   has_one          :order
-  has_many :item_tag_relations
+  has_many :item_tag_relations, dependent: :destroy
   has_many :tags, through: :item_tag_relations
 
   extend ActiveHash::Associations::ActiveRecordExtensions
